@@ -1,0 +1,41 @@
+!!! 5
+%html
+  / The source for this website is made freely available on GitHub.
+  /
+  / Check out github.com/mchung/airstatus
+  /
+  / Contributors wanted.
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "no burn day phoenix, spare the air san franciso", :name => "keywords"}/
+    %meta{:content => "AirStat.us", :name => "description"}/
+    %meta{:content => "UySEkVpFOocl8-VVEHHc3uu2TX_rkIaWE5Csu_9N2Ag", :name => "google-site-verification"}/
+    %link{:rel => "stylesheet", :href => "/stylesheets/reset.css", :type => "text/css", :media => "all"}
+    %link{:rel => "stylesheet", :href => "/application.css", :type => "text/css", :media => "all"}
+    %title AirStat.us | Earth Day 2011
+  %body
+    %section
+      %img{:src => "/logo.png"}/
+    %section#burnday
+      = yield
+
+    %section.tiny.support
+      Support for
+      %a{:href => "/sf"}San Francisco,
+      %a{:href => "/phx"}Phoenix,
+      %a{:href => "http://github.com/mchung/isitnoburnday"} [Add your city]
+
+    %section.tiny
+      Built by 
+      %a{:href => "http://twitter.com/heisenthought"}
+        Marc Chung
+      for Earth Day 2011
+
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    :javascript
+      try {
+      var pageTracker = _gat._getTracker("UA-10284368-2");
+      pageTracker._trackPageview();
+      } catch(err) {}

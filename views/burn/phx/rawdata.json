@@ -1,0 +1,25 @@
+
+{
+	"aqi" : 26,
+	"woodburning" : true,
+	"leafblowers" : true,
+	"ohvehicles" : true,
+	"hpa" : false,
+	"hw" : false,
+	"facts" : [
+		"Did you know there is an ordinance that prohibits the blowing of landscape debris into public roadways?<span style=\"font-style: italic;\">- Maricopa County Air Quality Department</span><br>",
+		"Did you know manufactured logs are prohibited from being used on No Burn Days?<span style=\"font-style: italic;\">- Maricopa County Air Quality Department</span>",
+		"Did you know fireplace restrictions include hotels and restaurants on No Burn Days?<span style=\"font-style: italic;\">- Maricopa County Air Quality Department</span>",
+		"Did you know a High Pollution Advisory or HPA means the highest concentration of pollution <span style=\"font-weight: bold;\">may exceed</span> the federal health standard?<span style=\"font-style: italic;\">- Maricopa County Air Quality Department</span>",
+		"Did you know a Health Watch or HW means the highest concentration of pollution <span style=\"font-weight: bold;\">may approach</span> the federal health standard? <br><br>",
+		"Did you know Gaylord Nelson organized the first Earth Day held on April 22, 1970? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know transportation consumes 25 percent of the total energy used in the United States? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know twenty million people celebrated the first Earth Day on April 22, 1970? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know choosing the most fuel-efficient vehicle could prevent over 15 tons of greenhouse gas pollution over the lifetime of your vehicle? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know an estimated 14 million school days each year are missed by children in the U.S. due to an asthma-related illness? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know changing just five conventional bulbs to energy-efficient bulbs can save an estimated $60 per year? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know twenty percent of U.S. morning traffic consists of students being driven to school? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know fine particulates (or PM-2.5) are approximately 1/30th the width of the average human hair? <span style=\"font-style: italic;\">- EPA</span><br>",
+		"Did you know the gas mower spews 87 lbs of the greenhouse gas pollution and 54 lbs of other pollutants into the air every year? <span style=\"font-style: italic;\">- EPA</span><br>",
+	]
+}

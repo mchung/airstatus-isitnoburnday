@@ -1,0 +1,213 @@
+<html> 
+<head> 
+<title>Clean Air Make More Widget</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<style type="text/css"> 
+	a{
+		color: #1a303c;
+		font-weight: bold;
+	}
+</style> 
+<script src="/js/jquery.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+var timeBetweenData = 1000 * 60 * 15, scrollFacts, scrollFactsTimer, curFact = 0, timeBetweenFacts = 10000;
+ 
+function cycleFacts() {
+	if(scrollFacts && scrollFacts.length > 0) {
+		if(curFact >= scrollFacts.length)
+			curFact = 0;
+ 
+		$('#fact').fadeOut('fast', function() { $(this).html(scrollFacts[curFact++]).fadeIn('slow'); });
+		scrollFactsTimer = setTimeout(cycleFacts, timeBetweenFacts);
+	}
+}
+ 
+function getCalendarDate() {
+   var months = new Array(12);
+   months[0]  = "January";
+   months[1]  = "February";
+   months[2]  = "March";
+   months[3]  = "April";
+   months[4]  = "May";
+   months[5]  = "June";
+   months[6]  = "July";
+   months[7]  = "August";
+   months[8]  = "September";
+   months[9]  = "October";
+   months[10] = "November";
+   months[11] = "December";
+   var now         = new Date();
+   var monthname   = months[now.getMonth()];
+   var monthday    = now.getDate();
+   var year        = now.getYear();
+   if(year < 2000) { year = year + 1900; }
+   var dateString = monthname +
+                    ' ' +
+                    monthday +
+                    ', ' +
+                    year;
+   return dateString;
+}
+ 
+function onClose(){
+    var closing = new air.Event(air.Event.CLOSING, true, true);
+    window.nativeWindow.dispatchEvent(closing);
+    if(!closing.isDefaultPrevented()){
+        window.close();
+    }
+}
+ 
+function onMinimize(){
+    var minimizing = new air.NativeWindowDisplayStateEvent(
+                        air.NativeWindowDisplayStateEvent.DISPLAY_STATE_CHANGING,
+                        true, true,
+                        window.nativeWindow.displayState,
+                        air.NativeWindowDisplayState.MINIMIZED);
+    window.nativeWindow.dispatchEvent(minimizing);
+    if(!minimizing.isDefaultPrevented()){
+        nativeWindow.minimize();
+    }
+}
+ 
+function loadScreenData() {
+	$('#date').html(getCalendarDate());
+	$.getJSON("http://www.cleanairmakemore.com/widget_json.cfm", function(settings) {
+		scrollFacts = settings['facts'];
+		if(!settings['woodburning'])
+			$('#woodburning').attr('src', '/widget/thin/images/wood_burning_red.png');
+		if(!settings['leafblowers'])
+			$('#leafblowers').attr('src', '/widget/thin/images/leaf_blowing_red.png');
+		if(!settings['ohvehicles'])
+			$('#ohvehicles').attr('src', '/widget/thin/images/vehicles_red.png');
+ 
+		if(settings['hpa'] || settings['hw']) {
+			if(scrollFactsTimer)
+				clearTimeout(scrollFactsTimer);
+			$('#facts').hide();
+			$('#alert').show();
+			$('#alert #icon').attr('src', '/widget/thin/images/' + (settings['hpa'] ? 'hpa' : 'hw') + '.png');
+		}
+		else {
+			$('#alert').hide();
+			$('#facts').show();
+			if(!scrollFactsTimer) {
+				cycleFacts();
+			}
+		}
+ 
+		maxAQI = 100;
+		level = 1;
+		while(level * (maxAQI / 6) < settings['aqi'])
+			level++;
+		if(level > 6)
+			level = 6;
+		$('#status_level').attr('src', '/widget/thin/images/status_' + level + '.png');
+		if(level >= 3) {
+			$('#status_graphical').attr('src', '/widget/thin/images/city_high.png');
+		}
+		else if(level == 2) {
+			$('#status_graphical').attr('src', '/widget/thin/images/city_medium.png');
+		}
+		else {
+			$('#status_graphical').attr('src', '/widget/thin/images/city_low.png');
+		}
+		$('#status_text').attr('src', '/widget/thin/images/status_' + level + '_text.png');
+	});
+	setTimeout(loadScreenData, timeBetweenData);
+}
+ 
+$(function() {
+	loadScreenData();
+});
+</script> 
+</head> 
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"> 
+<center><table id="Table_01" width="258" border="0" cellpadding="0" cellspacing="0"> 
+	<tr> 
+		<td colspan="3"> 
+			<img src="/widget/thin/images/widget-03.png" width="258" height="10" alt=""></td> 
+	</tr> 
+	<tr> 
+	<td colspan="3"> 
+		<table cellpadding="0" cellspacing="0" border="0"> 
+			<tr> 
+				<td rowspan="2" valign="top"> 
+					<a href="http://www.cleanairmakemore.com/"  target="_blank"><img src="/widget/thin/images/widget-05.png" width="85" height="57" alt="" border="0"></a></td> 
+				<td background="/widget/thin/images/date_bg.png" width="129" height="17"> 
+					<p style="font-family: arial; color: #477a93; font-size: 11px; text-align: right; padding: 0 10px 0 0;" id="date"></p> 
+				</td> 
+				<td> 
+					<a href="" id="minimize"><img src="/widget/thin/images/widget-07.png" width="18" height="17" alt="" border="0"></a></td> 
+				<td> 
+					<a href="" id="close"><img src="/widget/thin/images/widget-08.png" width="17" height="17" alt="" border="0"></a></td> 
+				<td> 
+					<img src="/widget/thin/images/date_bg-09.png" width="8" height="17" alt=""></td> 
+			</tr> 
+			<tr> 
+				<td colspan="4"> 
+					<img src="/widget/thin/images/widget-11.png" width="172" height="40" alt=""></td> 
+			</tr> 
+		</table> 
+	</td> 
+	</tr> 
+	<tr> 
+		<td colspan="3"> 
+			<img src="/widget/thin/images/city_low.png" width="258" height="72" alt="" id="status_graphical"></td> 
+	</tr> 
+	<tr> 
+		<td colspan="3"> 
+ 
+			<img src="/widget/thin/images/widget-13.png" width="258" height="24" alt=""></td> 
+	</tr> 
+	<tr> 
+		<td colspan="3"> 
+			<img src="/widget/thin/images/status_1.png" width="258" height="42" alt="" id="status_level"></td> 
+	</tr> 
+	<tr> 
+		<td colspan="3"> 
+			<img src="/widget/thin/images/status_1_text.png" width="258" height="22" alt="" id="status_text"></td> 
+ 
+	</tr> 
+	<tr> 
+		<td> 
+			<a href="http://www.cleanairmakemore.com/theoffenders/woodburning" target="_blank"><img id="woodburning" src="/widget/thin/images/wood_burning_green.png" width="85" height="98" alt="" border="0"></a></td> 
+		<td> 
+			<a href="http://www.cleanairmakemore.com/theoffenders/leaf-blowers" target="_blank"><img id="leafblowers" src="/widget/thin/images/leaf_blowing_green.png" width="86" height="98" alt="" border="0"></a></td> 
+		<td> 
+			<a href="http://www.cleanairmakemore.com/theoffenders/off-highway-vehicles" target="_blank"><img id="ohvehicles" src="/widget/thin/images/vehicles_green.png" width="86" height="98" alt="" border="0"></a></td> 
+	</tr> 
+	<tr> 
+		<td colspan="3" id="facts_container"> 
+			<table cellpadding="0" cellspacing="0" id="facts"> 
+				<tr> 
+					<td><img src="/widget/thin/images/fact.png" width="44" height="85" alt=""></td> 
+					<td background="/widget/thin/images/facts_widget-19.png" width="214px"><p style="padding: 10px 4px 2px; color: #1a303c; font-size: 11px; font-family: arial;" id="fact"></p></td> 
+				</tr> 
+			</table> 
+			<table cellpadding="0" cellspacing="0" id="alert" style="display: none;"> 
+				<tr> 
+					<td> 
+						<img src="/widget/thin/images/hpa.png" id="icon" width="85" height="85" alt=""></td> 
+					<td background="/widget/thin/images/widget-19.png" width="172px" height="85" valign="top" id="footer"> 
+						<p style="padding: 10px 4px 0; color: #1a303c; font-size: 11px; font-family: arial;">Did you know a Health Watch or HW means the highest concentration of pollution may approach the federal health standard?</p> 
+					</td> 
+				</tr> 
+			</table> 
+		</td> 
+		</tr> 
+	<tr> 
+		<td colspan="3"> 
+			<a href="http://www.cleanairmakemore.com/" target="_blank"><img src="/widget/thin/images/footer.png" width="258" height="35" alt="" border="0"></a></td> 
+	</tr> 
+</table> 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+try {
+var pageTracker = _gat._getTracker("UA-1421194-16");
+pageTracker._trackPageview();
+} catch(err) {}</script></center> 
+</body> 
+</html>
