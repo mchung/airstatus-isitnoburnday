@@ -7,6 +7,8 @@ airstat.us visitors can view the current status of air quality for the following
   * Maricopa County, http://www.cleanairmakemore.com/
   * San Francisco, http://sparetheair.org/
 
+Support for other cities will be coming soon.
+
 ## Thanks
 
   * [Earth Day 2011](http://www.earthday.org/earth-day-2011)
@@ -21,13 +23,14 @@ airstat.us visitors can view the current status of air quality for the following
     cd airstatus
     bundle update
 
-### Start the server in mode:
+### Starting the application
 
     shotgun --server=thin --port=5000 config.ru
+    Visit http://localhost:5000
 
 ### Contributing
 
-Once you've made your great commits:
+Once you've made your commits:
 
 1. [Fork](http://help.github.com/forking/) airstatus
 2. Create a topic branch - git checkout -b my_branch
