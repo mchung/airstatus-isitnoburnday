@@ -16,9 +16,14 @@ module Burn
       redirect "/phx"
     end
 
-    post "/tropo" do
-      Tropo::Generator.say "Hello, world"
-    end
+    # post "/index.json" do
+    #   v = Tropo::Generator.parse request.env["rack.input"].read
+    #   pp [:tropo, v]
+    #   tropo = Tropo::Generator.new do
+    #     say("Hello world")
+    #   end
+    #   tropo.response
+    # end
 
     get "/sf" do
       response.headers["Cache-Control"] = "public, max-age=300"

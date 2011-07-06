@@ -1,0 +1,46 @@
+[:tropo,
+ {"session"=>
+   {"id"=>"cbe019e1f503280434e5742e9645b1cf",
+    "account_id"=>"68936",
+    "timestamp"=>2011-04-22 07:36:15 UTC,
+    "user_type"=>"HUMAN",
+    "initial_text"=>nil,
+    "call_id"=>"40b3953b252dcbae6f981b5e7777e4e2",
+    "to"=>
+     {"id"=>"4803743235",
+      "name"=>"+14803743235",
+      "channel"=>"VOICE",
+      "network"=>"SIP"},
+    "from"=>
+     {"id"=>"Restricted",
+      "name"=>"Unavailable",
+      "channel"=>"VOICE",
+      "network"=>"SIP"},
+    "headers"=>
+     {"x-sbc-from"=>
+       "\"Unavailable\"<sip:Restricted@192.168.47.68>;tag=gK09309986",
+      "x-voxeo-sbc-name"=>"10.6.63.201",
+      "x-sbc-contact"=>"\"Unavailable\"<sip:Restricted@192.168.47.68:5060>",
+      "_content-_length"=>"247",
+      "x-accountid"=>"2",
+      "_to"=>"<sip:4803743235@10.6.61.201:5060>",
+      "x-voxeo-sbc"=>"true",
+      "_contact"=>"<sip:Restricted@10.6.63.201:5060>",
+      "x-sbc-remote-party-id"=>
+       "\"Unavailable\" <sip:Restricted@192.168.47.68>;privacy=off;screen=yes",
+      "x-voxeo-to"=>"<sip:+14803743235@67.231.4.93>",
+      "x-appid"=>"24601",
+      "x-sbc-request-uri"=>"sip:+14803743235@sip.tropo.com",
+      "x-sbc-call-id"=>"1225330082_107720409@192.168.47.68",
+      "x-sid"=>"2e7820875538887339819ef2d24d70ab",
+      "x-sbc-cseq"=>"26723 INVITE",
+      "x-sbc-max-forwards"=>"26",
+      "x-voxeo-sbc-session-id"=>"2e7820875538887339819ef2d24d70ab",
+      "_c_seq"=>"2 INVITE",
+      "_via"=>"SIP/2.0/UDP 66.193.54.6:5060;received=10.6.63.201",
+      "x-sbc-record-route"=>"<sip:216.82.224.202;lr;ftag=gK09309986>",
+      "_call-_i_d"=>"0-13c4-4db12ff0-678488b8-36a4-1d7e35a0",
+      "_content-_type"=>"application/sdp",
+      "x-sbc-to"=>"<sip:+14803743235@67.231.4.93>",
+      "_from"=>
+       "<sip:Restricted@10.6.63.201:5060>;tag=0-13c4-4db12ff0-678488b8-1dd9"}}}]
