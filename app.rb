@@ -8,7 +8,7 @@ module Burn
   class App < Sinatra::Base
     set :raise_errors, true
     set :views, "views"
-    set :public, "public"
+    set :public_folder, "public"
     set :static, true
 
     get "/" do

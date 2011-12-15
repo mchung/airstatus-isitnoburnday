@@ -1,13 +1,14 @@
 source :rubygems
 
-gem "sinatra"
-gem "haml"
-gem "json"
-gem "tropo-webapi-ruby"
-gem "nokogiri"
+gem 'sinatra'
+gem 'haml'
+gem 'sass'
+gem 'json'
+gem 'tropo-webapi-ruby'
+gem 'nokogiri'
 
 group :development do
-  gem "heroku"
-  gem "shotgun"
-  gem "thin"
+  gem 'heroku'
+  gem 'shotgun'
+  gem 'thin'
 end
