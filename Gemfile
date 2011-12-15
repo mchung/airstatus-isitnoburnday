@@ -1,13 +1,13 @@
 source :rubygems
 
-gem "sinatra", "~> 1.2"
-gem "haml", "~> 3.0"
+gem "sinatra"
+gem "haml"
 gem "json"
 gem "tropo-webapi-ruby"
 gem "nokogiri"
 
 group :development do
   gem "heroku"
-  gem "shotgun", "~> 0.9"
-  gem "thin", "~> 1.2"
+  gem "shotgun"
+  gem "thin"
 end
