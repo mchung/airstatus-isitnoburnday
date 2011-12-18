@@ -1,1 +1,1 @@
-web:      thin -p $PORT -e $RACK_EVN -R config.ru start
+web:      thin -p $PORT -e $RACK_ENV -R config.ru start
