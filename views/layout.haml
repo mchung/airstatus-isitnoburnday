@@ -13,6 +13,10 @@
     %link{:rel => "stylesheet", :href => "/stylesheets/reset.css", :type => "text/css", :media => "all"}
     %link{:rel => "stylesheet", :href => "/application.css", :type => "text/css", :media => "all"}
     %title IsItNoBurnDay?
+    :plain
+      <script type="text/javascript">var switchTo5x=false;</script>
+      <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+      <script type="text/javascript">stLight.options({publisher:'b2cb91cd-bb0b-430a-89bb-23ed07588d7a'});</script>
   %body
     %section
       %a{:href => "http://airstat.us"}
@@ -25,11 +29,13 @@
       / %a{:href => "/sf"}San Francisco,
       / %a{:href => "/phx"}Phoenix,
       / %a{:href => "http://eepurl.com/eDgKk"} Don't see your city?
-
+    %section#share
+      %span.st_twitter_hcount{:displayText => 'Tweet'}
+      %span.st_plusone_hcount
+      %span.st_fblike_hcount
     %section.tiny
       %a{:href => "http://blog.airstat.us/"}
         Read the blog
-
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-10284368-2']);
