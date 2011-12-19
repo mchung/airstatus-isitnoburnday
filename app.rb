@@ -3,11 +3,11 @@ require "open-uri"
 require "json"
 require "pp"
 require "tropo-webapi-ruby"
-require 'sinatra/synchrony'
+#require 'sinatra/synchrony'
 
 module Burn
   class App < Sinatra::Base
-    register Sinatra::Synchrony
+#    register Sinatra::Synchrony
 
     set :raise_errors, true
     set :views, "views"
