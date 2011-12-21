@@ -53,6 +53,15 @@ module Burn
       json
     end
 
+    # Title
+    def title
+      if self.is_no_burn_day?
+        "Phoenix has a No Burn Day advisory for #{self.date}"
+      else
+        "Phoenix has no clean air advisories for #{self.date}"
+      end
+    end
+
     # def fetch_json_from_cache
     #   json = $cache.get("clean_air_make_more_json")
     #   if json.nil?
